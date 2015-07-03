@@ -1,0 +1,21 @@
+<%
+  types = {
+    int: 'Int',
+    string: 'String',
+    date: 'NSDate'
+  }
+
+  required = attributes.reject { |k, v| v.optional? }
+%>
+
+public struct <%= name %> {
+<% attributes.each do |key, attribute| -%>
+    public var <%= key.camelize(:lower) %>: <%= types[attribute.type] %><%= '?' if attribute.optional? %>
+<% end -%>
+
+    init(<%= required.map { |key, attribute| "#{key.camelize(:lower)}: #{types[attribute.type]}" }.join(", ") -%>){
+<% required.each do |key, attribute| -%>
+        self.<%= key.camelize(:lower) %> = <%= key.camelize(:lower) %>
+<% end -%>
+    }
+}

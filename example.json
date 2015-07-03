@@ -1,0 +1,25 @@
+{
+  "models": {
+    "collection": {
+      "id": "string",
+      "title": "string",
+      "subtitle": "string?",
+      "duration": "int",
+      "aired_at": "date",
+      "images": "[image]"
+    },
+    "image": {
+      "id": "string",
+      "width": "int",
+      "height": "int",
+      "url": "url"
+    },
+    "channel": {
+      "id": "string",
+      "title": "string",
+      "subtitle": "string?",
+      "duration": "int",
+      "images": "[image]"
+    }
+  }
+}
